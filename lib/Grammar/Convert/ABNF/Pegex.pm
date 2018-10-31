@@ -13,7 +13,7 @@ use Parse::ABNF;
 use feature qw(signatures);
 no warnings qw(experimental::signatures);
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 has abnf   => ( is => 'ro', required => 1 );
 has pegex  => ( is => 'ro', lazy => 1, default => sub ( $self ) {
