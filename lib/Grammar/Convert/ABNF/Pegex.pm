@@ -1,15 +1,19 @@
 package Grammar::Convert::ABNF::Pegex;
 
+# ABSTRACT: convert an ABNF grammar to Pegex
+
 use v5.20;
 
 use strict;
 use warnings;
 
-use feature 'signatures';
-no warnings 'experimental::signatures';
-
 use Moo;
 use Parse::ABNF;
+
+use feature qw(signatures);
+no warnings qw(experimental::signatures);
+
+our $VERSION = '0.01';
 
 has abnf   => ( is => 'ro', required => 1 );
 has pegex  => ( is => 'ro', lazy => 1, default => sub ( $self ) {
@@ -105,3 +109,24 @@ sub _conv_literal ( $self, $element ) {
 }
 
 1;
+
+__END__
+
+=head1 DESCRIPTION
+
+This module should help to create parser module that uses L<Pegex|https://metacpan.org/pod/Pegex>
+when an ABNF grammar is known.
+
+=head1 SYNOPSIS
+
+    use Grammar::Convert::ABNF::Pegex;
+    
+    my $abnf = "A = (B C) / *D\n";
+    my $conv = Grammar::Convert::ABNF::Pegex->new( abnf => $abnf );
+    say $conv->pegex;
+
+=head1 ATTRIBUTES
+
+=head2 abnf
+
+=head2 pegex
