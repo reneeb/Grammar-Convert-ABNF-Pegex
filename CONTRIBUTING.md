@@ -1,44 +1,48 @@
+Contributing to Grammar::Convert::ABNF::Pegex
+=============================================
 
-# Development
+## Getting Started
 
-The distribution is contained in a Git repository, so simply clone the
-repository
+If you have carton available you should just be able to
+clone this repo, change to the directory, and run `make test`.
 
-```
-$ git clone git://github.com/reneeb/Grammar-Convert-ABNF-Pegex.git
-```
+### Installing dependencies
 
-and change into the newly-created directory.
+The dependencies for this project are listed in its `cpanfile`,
+this file is usually handled by [Carton](https://metacpan.org/pod/Carton).
 
-```
-$ cd Grammar-Convert-ABNF-Pegex
-```
+Installing Carton can be done with any CPAN client into whichever version of perl you want to use.
 
-The project uses [`Dist::Zilla`](https://metacpan.org/pod/Dist::Zilla) to
-build the distribution, hence this will need to be installed before
-continuing:
+If you don't have permission, or just don't want to install things into your system perl, you can use [App::Plenv](https://github.com/tokuhirom/plenv) and the [perl-build](https://github.com/tokuhirom/perl-build) plugin, or [Perlbrew](https://perlbrew.pl/) to install different versions of perl.
 
-```
-$ cpanm Dist::Zilla
-```
+Once you have a version of perl to use for testing this, if you don't have a preference for a CPAN client, we recommend you use [cpanminus](https://metacpan.org/pod/App::cpanminus#Installing-to-system-perl).
 
-To install the required prequisite packages, run the following set of
-commands:
+With `plenv` you are able to get cpanminus with `plenv install-cpanm`.
 
-```
-$ dzil authordeps --missing | cpanm
-$ dzil listdeps --author --missing | cpanm
-```
+Otherwise, quoting the cpanminus quickstart instructions:
 
-The distribution can be tested like so:
+> Quickstart: Run the following command and it will install itself for you.
+> You might want to run it as a root with sudo if you want to
+> install to places like /usr/local/bin.
+>
+>   `% curl -L https://cpanmin.us | perl - App::cpanminus`
+>
+> If you don't have curl but wget, replace `curl -L` with `wget -O -`.
 
-```
-$ dzil test
-```
+Once you have cpanminus, you can install Carton with:
 
-To run the full set of tests (including author and release-process tests),
-add the `--author` and `--release` options:
+    cpanm Carton
 
-```
-$ dzil test --author --release
-```
+With `carton` available, you can run `make test` and make sure tests pass.  If they do, you're ready to start making changes and get ready to create a Pull Request.
+
+### Using Dist::Zilla
+
+The release of this distribution is managed by [Dist::Zilla](http://dzil.org) which provides a lot of benefits for managing releases and modules at the expense of longer a learning curve.
+
+However, you probably don't need it unless you want to build a release or run author tests.
+
+In order to work with Dist::Zilla's `dzil` you will need to run `carton install` manually as the Makefile uses `--without develop` to avoid unnecessary dependencies.
+
+Once those dependencies are installed, you need to use `carton exec dzil` so it can find them.
+
+
