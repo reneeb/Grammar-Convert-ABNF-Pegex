@@ -12,6 +12,7 @@ on develop => sub {
     requires 'Dist::Zilla::PluginBundle::Filter';
     requires 'Dist::Zilla::PluginBundle::Git';
     requires 'Dist::Zilla::Plugin::ContributorsFile';
+    requires 'Dist::Zilla::Plugin::Git::GatherDir';
     requires 'Dist::Zilla::Plugin::Git::Contributors';
     requires 'Dist::Zilla::Plugin::GitHubREADME::Badge';
     requires 'Dist::Zilla::Plugin::MetaJSON';
