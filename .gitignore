@@ -3,3 +3,7 @@ Grammar-Convert-ABNF-Pegex-*
 .build*
 t/Test*
 t/*.bak
+
+.perl-version
+cpanfile.snapshot
+local/
