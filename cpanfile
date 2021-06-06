@@ -22,7 +22,6 @@ on develop => sub {
     requires 'Dist::Zilla::Plugin::PodSyntaxTests';
     requires 'Dist::Zilla::Plugin::PodWeaver';
     requires 'Dist::Zilla::Plugin::Prereqs::FromCPANfile';
-    requires 'Dist::Zilla::Plugin::ReadmeAddDevInfo';
     requires 'Dist::Zilla::Plugin::ReadmeAnyFromPod';
     requires 'Dist::Zilla::Plugin::VersionFromModule';
 
