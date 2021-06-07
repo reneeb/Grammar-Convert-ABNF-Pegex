@@ -5,7 +5,6 @@ requires 'Parse::ABNF';
 
 on test => sub {
     requires 'Path::Tiny';
-    requires 'Pod::Coverage::TrustPod';
 };
 
 on develop => sub {
@@ -25,4 +24,9 @@ on develop => sub {
     requires 'Dist::Zilla::Plugin::ReadmeAddDevInfo';
     requires 'Dist::Zilla::Plugin::ReadmeAnyFromPod';
     requires 'Dist::Zilla::Plugin::VersionFromModule';
+
+    # These are for the Dist::Zilla generated Pod tests.
+    requires 'Test::Pod';
+    requires 'Test::Pod::Coverage';
+    requires 'Pod::Coverage::TrustPod';
 };
